@@ -1,0 +1,14 @@
+* {
+  border-radius: 0 !important;
+}
+#page-wrapper {
+  &.hide-sidebar {
+    margin-left: 0;
+  }
+}
+.dropdown-toggle {
+  cursor: pointer;
+}
+.form-control + .form-control {
+  margin-top: 5px;
+}

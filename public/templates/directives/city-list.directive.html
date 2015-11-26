@@ -1,0 +1,6 @@
+<select
+        name="{{ drName }}"
+        class="{{ drClass }}"
+        ng-options="item.id.toString() as item.city_name for item in dr.cities | filter: drFilterByCountry | orderBy: 'city_name'"
+        ng-model="bindModel">
+</select>

@@ -1,0 +1,6 @@
+<select
+        name="{{ drName }}"
+        class="{{ drClass }}"
+        ng-options="key as value for (key, value) in dr.timezones"
+        ng-model="bindModel">
+</select>

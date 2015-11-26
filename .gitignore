@@ -1,0 +1,5 @@
+/bower_components
+/.idea
+/node_modules
+/public/admin/assets/scss/_copy
+/public/admin/dist/css/map/_copy
