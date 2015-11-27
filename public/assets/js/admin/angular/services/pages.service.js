@@ -13,6 +13,8 @@
         service.GetById = GetById;
         service.GetPageTemplates = GetPageTemplates;
         service.UpdatePage = UpdatePage;
+        service.DeletePage = DeletePage;
+        service.UpdatePages = UpdatePages;
 
         return service;
 
@@ -46,12 +48,30 @@
             }
             else
             {
-                $http.post(baseApi + 'pages/create', $data).success(function (response) {
+                $http.post(baseApi + 'pages', $data).success(function (response) {
                     if(callback) callback(response);
                 }).error(function(response){
                     if(callbackError) callbackError(response);
                 });
             }
+        }
+
+        function UpdatePages($ids, $data, callback, callbackError)
+        {
+            $http.put(baseApi + 'pages', {ids: $ids, data: $data}).success(function (response) {
+                if(callback) callback(response);
+            }).error(function(response){
+                if(callbackError) callbackError(response);
+            });
+        }
+
+        function DeletePage($ids, callback, callbackError)
+        {
+            $http.delete(baseApi + 'pages', {params: {'ids[]': $ids}}).success(function (response) {
+                if(callback) callback(response);
+            }).error(function(response){
+                if(callbackError) callbackError(response);
+            });
         }
     }
 })();

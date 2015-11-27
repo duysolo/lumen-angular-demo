@@ -16,3 +16,5 @@ Documents
 > - In **command line**, **cd** to folder **public**, then run **npm install**.
 > - If you did not install **bower**, please run **npm install -g bower**, then run **bower install**
 > - I use **gulp** to manage tasks, you can view these tasks at **./public/gulpfile.js**.
+> - I just build the backend. You can access by **your-host-on-local/public/admin**.
+> - Username **webmaster**, password **PassCuaDev@2015**.

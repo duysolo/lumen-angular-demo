@@ -43,6 +43,18 @@ class PageController extends BaseController
         }
         return response()->json($data, $errorCode);
     }
+    public function multiEdit(Request $request)
+    {
+        $errorCode = 500;
+        $ids = $request->get('ids');
+        $data = $request->get('data');
+        $result = Page::updatePages($ids, $data);
+        if(!$result['error'])
+        {
+            $errorCode = 200;
+        }
+        return response()->json($result, $errorCode);
+    }
 
     /*Create - POST*/
     public function create(Request $request)
@@ -52,6 +64,19 @@ class PageController extends BaseController
         if(!$data['error'])
         {
             $errorCode = 200;
+        }
+        return response()->json($data, $errorCode);
+    }
+
+    /*Delete - DELETE*/
+    public function destroy(Request $request)
+    {
+        $errorCode = 500;
+        $ids = $request->get('ids');
+        $data = Page::deletePage($ids);
+        if(!$data['error'])
+        {
+            $errorCode = 204;
         }
         return response()->json($data, $errorCode);
     }

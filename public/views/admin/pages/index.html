@@ -17,7 +17,8 @@
         <colgroup>
             <col width="1%">
             <col width="70%">
-            <col width="30%">
+            <col width="10%">
+            <col width="10%">
         </colgroup>
         <thead>
         <tr>
@@ -30,6 +31,7 @@
                     ng-change="vm.multiSelect()">
             </th>
             <th>Tiêu đề</th>
+            <th>Trạng thái</th>
             <th>Ngày cập nhật</th>
         </tr>
         </thead>
@@ -47,6 +49,7 @@
                 <a href="#/pages/{{ item.id }}" title="{{ item.title }}">{{ item.title }}</a>
                 <p class="text-muted">{{ item.meta_description }}</p>
             </td>
+            <td>{{ (item.status == 1) ? 'Cho phép hiển thị' : 'Đã ẩn' }}</td>
             <td>{{ item.updated_at }}</td>
         </tr>
         </tbody>

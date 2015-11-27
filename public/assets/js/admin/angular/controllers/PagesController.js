@@ -203,6 +203,14 @@
             }
             switch ($action)
             {
+                case 'delete':
+                {
+                    return PageService.DeletePage(ids, function(response){
+                        FlashMessageService.Success('Xóa trang thành công.', false);
+                    }, function(response){
+                        FlashMessageService.Error('Xóa trang thất bại.', false);
+                    });
+                } break;
                 case 'show':
                 {
                     data.status = 1;
@@ -211,11 +219,13 @@
                 {
                     data.status = 0;
                 } break;
-                case 'delete':
-                {
-
-                } break;
             }
+            PageService.UpdatePages(ids, data, function(response){
+                FlashMessageService.Success('Cập nhật trang thành công.', false);
+            }, function(response){
+                FlashMessageService.Error('Cập nhật trang thất bại.', false);
+            });
+            getPages(vm.currentPage);
         }
     }
 })();

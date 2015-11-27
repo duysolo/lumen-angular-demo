@@ -28,9 +28,11 @@ $app->group(['namespace' => 'App\Http\Controllers\Admin'], function($app) {
     /*Pages*/
     $app->group(['prefix' => 'pages', 'namespace' => 'App\Http\Controllers\Admin'], function($app){
         $app->get('/', 'PageController@index');
-        $app->post('/create', 'PageController@create');
+        $app->post('/', 'PageController@create');
         $app->get('/{id}', 'PageController@show');
+        $app->put('/', 'PageController@multiEdit');
         $app->put('/{id}', 'PageController@edit');
+        $app->delete('/', 'PageController@destroy');
     });
 
     /*Settings*/

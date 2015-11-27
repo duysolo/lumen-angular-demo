@@ -54,4 +54,28 @@ class Page extends AbstractModel
         $result['data'] = $page;
         return $result;
     }
+
+    public static function updatePages($ids, $fields)
+    {
+        $filter = [];
+        foreach($fields as $keyRow => $value)
+        {
+            if(in_array($keyRow, static::$acceptableEdit) && $keyRow)
+            {
+                $filter[$keyRow] = $value;
+            }
+        }
+        $pages = static::whereIn('id', $ids);
+        $result = [];
+        $result['error'] = !$pages->update($filter);
+        return $result;
+    }
+
+    public static function deletePage($ids)
+    {
+        $pages = static::whereIn('id', $ids);
+        $result = [];
+        $result['error'] = !$pages->delete();
+        return $result;
+    }
 }
